@@ -35,7 +35,7 @@ const Navbar = () => {
         <Link to="/" className="flex items-center">
           <img
             className="h-10 me-4"
-            src="https://cdn-icons-png.flaticon.com/128/10433/10433049.png"
+            src="/logo.png"
             alt="logo"
           />
           <h1 className="text-2xl font-semibold">𝓟ɑŧԩ𝖘ɦɑᶩɑ पाठशाला</h1>

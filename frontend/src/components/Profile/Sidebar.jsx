@@ -5,11 +5,9 @@ import { Link } from "react-router-dom";
 const Sidebar = ({ data }) => {
   return (
     <div className="bg-yellow-800 p-4 rounded flex flex-col items-center justify-between h-[100%]">
-      {/* IMAGE ALONE */}
-      <img src={data.avatar} alt="" className="h-[12vh] rounded-full" />
-
-      {/* CONTENT SEPARATE */}
+    
       <div className="flex flex-col items-center justify-center mt-4 w-full">
+      <img src={data.avatar} alt="" className="h-[12vh] rounded-full" />
         <p className="text-xl text-zinc-100 font-semibold">{data.username}</p>
         <p className="mt-1 text-normal text-zinc-300">{data.email}</p>
         <div className="w-full mt-4 h-[1px] bg-zinc-500"></div>

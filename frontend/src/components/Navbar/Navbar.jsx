@@ -21,30 +21,42 @@ const Navbar = () => {
       title: "Profile",
       link: "/profile",
     },
+    {
+      title: "Admin Profile",
+      link: "/profile",
+    },
   ];
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+
+  const role = useSelector((state) => state.auth.role);
 
   if (isLoggedIn === false) {
     links.splice(2, 2);
   }
+
+  if (isLoggedIn == true && role === "user") {
+    links.splice(4, 1);
+  }
+
+  if (isLoggedIn == true && role === "admin") {
+    links.splice(3, 1);
+  }
+
   const [MobileNav, setMobileNav] = useState("hidden");
 
   return (
     <>
       <nav className="z-50 relative flex bg-zinc-800 text-white px-8 py-4 items-center justify-between">
         <Link to="/" className="flex items-center">
-          <img
-            className="h-10 me-4"
-            src="/logo.png"
-            alt="logo"
-          />
+          <img className="h-10 me-4" src="/logo.png" alt="logo" />
           <h1 className="text-2xl font-semibold">𝓟ɑŧԩ𝖘ɦɑᶩɑ पाठशाला</h1>
         </Link>
         <div className="nav-links-bookheaven block md:flex items-center gap-4">
           <div className="hidden md:flex gap-4">
             {links.map((items, i) => (
               <div className="flex items-center ">
-                {items.title === "Profile" ? (
+                {items.title === "Profile" ||
+                items.title === "Admin Profile" ? (
                   <Link
                     to={items.link}
                     className="px-4 py-1 border border-blue-500 rounded hover:bg-white hover:text-zinc-800 transition duration-300"
